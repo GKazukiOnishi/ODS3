@@ -1,0 +1,24 @@
+FROM node:18.16.0-alpine3.17
+
+# Pasta em que a aplicação ficará
+RUN mkdir -p /opt/app
+WORKDIR /opt/app
+
+# Para evitar que os node_modules sejam copiados, rodamos npm install primeiro e depois copiamos os arquivos da aplicação
+COPY ./ods3Front/package.json .
+RUN npm install
+
+# Copiamos arquivos da aplicação
+COPY ./ods3Front/ .
+
+# Rodando build da aplicação
+RUN npm run build
+
+# Instalando serve
+RUN npm install -g serve
+
+# Porta 3001
+EXPOSE 3001
+
+# Rodando aplicação
+CMD [ "serve", "-s", "build", "-p", "3001"]
