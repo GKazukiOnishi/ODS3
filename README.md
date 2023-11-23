@@ -38,7 +38,7 @@ O projeto foi desenvolvido utilizando as seguintes tecnologias:
 - **Jest**: Jest é um framework de teste para JavaScript, com foco na simplicidade. É utilizado para testes unitários e de integração.
 - **SuperTest**: SuperTest é uma biblioteca de asserções HTTP para Node.js, frequentemente utilizada em conjunto com o Jest para testar APIs.
 - **K6**: K6 é uma ferramenta de teste de carga e desempenho, utilizada para avaliar o comportamento do sistema sob diferentes condições de tráfego.
-- **Node.js com Express **: Utilizamos o Node.js com o framework Express para construir a camada de servidor da nossa aplicação.
+- **Node.js com Express**: Utilizamos o Node.js com o framework Express para construir a camada de servidor da nossa aplicação.
 - **React JS**: ReactJS é uma biblioteca JavaScript para construção de interfaces de usuário. É utilizado na criação da interface do usuário no lado do cliente.
 - **Axios**: Axios é um cliente HTTP baseado em Promises que utilizamos para fazer requisições HTTP tanto no lado do cliente (React) quanto no lado do servidor (Node.js).
 - **Recharts**: Recharts é uma biblioteca de gráficos para React baseada em D3. Utilizamos o Recharts para visualização de dados e criação de gráficos interativos em nossa aplicação.
@@ -52,37 +52,96 @@ O projeto foi desenvolvido utilizando as seguintes tecnologias:
 5. Clique no container applications gerado de forma automática, e espere o script de inserção (DML) finalizar para começar a utilizar os serviços de API e frontend.
 7. Acesse a aplicação através do navegador e explore os indicadores de saúde do ODS 3 de maneira intuitiva.
 
-##Banco de dados
+## Banco de dados
 
-###DER
-###MER
+### DER
+![DER](https://github.com/GKazukiOnishi/ODS3/assets/98359422/a8571598-bbac-4f09-9472-32113a903251)
 
-##BACKEND
+### MER
+![MER](https://github.com/GKazukiOnishi/ODS3/assets/98359422/1a3f5c2f-cfc4-4bd0-b554-c2fdef1eb48c)
 
-###Instruções para execução:
+## BACKEND
 
-###APIs:
+### Instruções para execução:
+
+### APIs:
 
 1) Endpoint GET/categorias
+```
+http://localhost:3000/categorias
+```
+
 2) Endpoint GET/indicador
+```
+http://localhost:3000/indicador
+```
+
 3) Endpoint GET/indicador/{id}
+```
+http://localhost:3000/indicador/3.1.1
+```
+
 4) Endpoint GET/objetivos
+```
+http://localhost:3000/objetivos
+```
+### Prints executados no Postman:
 
-###Prints executados no Postman:
+1) Endpoint GET/categorias
+![GET_CATEGORIAS](https://github.com/GKazukiOnishi/ODS3/assets/98359422/88775fe6-54f2-4112-a828-aa98821d711a)
 
-##FRONTEND
 
-###Prints do wireframe:
+2) Endpoint GET/indicador
+![GET_INDICADORES](https://github.com/GKazukiOnishi/ODS3/assets/98359422/f3c199fd-ac4e-44d5-813e-6c4dac1e0926)
 
-###Instruções para execuções:
 
-###Prints em execução:
+3) Endpoint GET/indicador/{id}
+![GET_INDICADOR](https://github.com/GKazukiOnishi/ODS3/assets/98359422/c9a4bbf6-fc71-43d4-9cfb-3dc6a5e6d29d)
+
+
+4) Endpoint GET/objetivos
+![GET_OBJETIVOS](https://github.com/GKazukiOnishi/ODS3/assets/98359422/1dfbf914-2a49-49e5-86b5-be3f37ca3929)
+
+
+## FRONTEND
+
+### Prints do wireframe:
+
+- Página Inicial:
+![1-Homepage](https://github.com/GKazukiOnishi/ODS3/assets/98359422/0941d068-1ebf-4f79-a733-9076cbabb075)
+  
+* Página de Objetivos:
+![2-Objetivos](https://github.com/GKazukiOnishi/ODS3/assets/98359422/aad3f727-1c15-44bf-adb4-82bd4434de3b)
+
++ Página de Indicadores:
+![3-Indicadores](https://github.com/GKazukiOnishi/ODS3/assets/98359422/29d1720f-238f-4972-97d7-5fc21ff7d3ea)
+
+### Instruções para execuções:
+```
+http://localhost:3001/
+```
+### Prints em execução:
+
++ Página Inicial:
+![home](https://github.com/GKazukiOnishi/ODS3/assets/98359422/31d14f63-9c20-4350-b1fc-d4ab56684c02)
+
++ Página de Indicadores sem filtros:
+![indicadores](https://github.com/GKazukiOnishi/ODS3/assets/98359422/78f4ee27-7a8f-4b35-8e34-b369ff1aac65)
+
++ Página de Indicadores com filtros:
+![indicadores_filtro](https://github.com/GKazukiOnishi/ODS3/assets/98359422/2730d4e0-0979-42e0-9e8f-a2a522943b65)
+
++ Página de Objetivos Brasil:
+![objetivos_brasil](https://github.com/GKazukiOnishi/ODS3/assets/98359422/836b54fd-6691-496c-b735-540dc64ea022)
+
++ Página de Objetivos Mundo
+![objetivos_mundo](https://github.com/GKazukiOnishi/ODS3/assets/98359422/c9db1c70-cdb0-4557-8806-d8c88f191e91)
 
 ## Testes
 
-###Jest / Supertest:
+### Jest / Supertest:
 
-###k6:
+### k6:
 
 
 Contribua conosco na construção de um mundo mais saudável e inclusivo!
