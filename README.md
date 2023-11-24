@@ -234,6 +234,66 @@ npx jest
 
 ### K6:
 
+Instruções para execução dos testes de carga:
+
+1. Abra a pasta do projeto ODS3API no Visual Studio Code.
+2. Ao abrir o projeto, caminhe até a pasta de testes conforme o exemplo do caminho abaixo:
+
+```
+C:\Users\amsbr\OneDrive\Documentos\ODS3\applications\backend\ods3API\tests>
+```
+
+3. No terminal, dentro do caminho da pasta de testes, escreva o comando abaixo para executar os testes de performance:
+
+```javascript
+
+k6 run scripts.js
+
+```
+
+> [!NOTE]
+> Ao utilizar o comando descrito no passo anterior, você estará testando todos os endpoints conjuntamente e não apenas um endpoint só.
+> Isso acontece, pois o arquivo scripts.js foi desenvolvido com a inteção de facilitar com apenas um comando testar todas as controllers e cenários da aplicação.
+
+
+> [!TIP]
+> É possível testar os endpoints de forma separada também, acessando a pasta scenarios que fica dentro da pasta de testes conforme o exemplo abaixo:
+>
+> ```
+> C:\Users\amsbr\OneDrive\Documentos\ODS3\applications\backend\ods3API\tests\scenarios>
+> ```
+>
+> Dentro da pasta abaixo, você pode digitar o mesmo comando que utilizou para executar o arquivo de scripts.
+> Para isso apenas altere o nome do arquivo para o endpoint que deseja testar, conforme exemplos abaixo:
+>
+>```javascript
+> k6 run get-categoria.js                          // ---> Para testar a controller de Categoria
+> k6 run get-objetivo.js                           // ---> Para testar a controller de Objetivo
+> k6 run get-indicador.js                          // ---> Para testar a controller de Indicador
+> k6 run get-indicador-codIndicador.js             // ---> Para testar a controller de Indicador com o código Indicador
+>```
+
+-- falar da configuração que a pessoa pode mudar conforme ela deseja
+> [!IMPORTANT]
+> É necessário lembrar que você também pode alterar as configurações do seu teste dentro do arquivo scripts.js, assim como dentro de cada arquivo da pasta scenarios que deseja testar.
+> As configurações que você pode alterar são o número de usuários virtuais (vus) e a duração (duration) que deseja utilizar para o teste, dentro do pedaço de código abaixo de cada arquivo:
+
+```javascript
+
+export const options = {
+    vus: 10,
+    duration: '10s',
+};
+
+```
+
+### Prints do relatório de execução dos testes de integração utlizando k6:
+
++ Configuração do teste:
+  - Usuários Virtuais (vus): 100
+  - Duração (duration): 5min
+ 
+
 
 Contribua conosco na construção de um mundo mais saudável e inclusivo!
 
