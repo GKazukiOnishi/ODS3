@@ -182,8 +182,17 @@ http://localhost:3001/
 
 Instruções para execução dos testes de Integração:
 
+> [!IMPORTANT]
+> Antes de começar os testes de integração, certifique-se de que os containers estejam funcionando, pelo menos o container "ods3db".
+
 1. Abra a pasta do projeto ODS3API no Visual Studio Code.
-2. Ao abrir o projeto, caminhe até a pasta de configuração conforme o exemplo do caminho abaixo:
+2. Abra o terminal e execute o comando abaixo:
+
+```
+npm install
+```
+
+3. Ao abrir o projeto, caminhe até a pasta de configuração conforme o exemplo do caminho abaixo:
 
 ```
 C:\Users\amsbr\OneDrive\Documentos\ODS3\applications\backend\ods3API\src\config
@@ -235,6 +244,10 @@ npx jest
 ### K6:
 
 Instruções para execução dos testes de carga:
+
+> [!IMPORTANT]
+> Antes de começar os testes de carga, certifique-se de que o k6 está instalado em sua máquina, pois sem ele instalado não tem como executar os testes.
+> Caso, ainda não tenha o k6 instalado, você pode seguir os passos de instalação conforme a [documentação oficial](https://k6.io/docs/get-started/installation/). 
 
 1. Abra a pasta do projeto ODS3API no Visual Studio Code.
 2. Ao abrir o projeto, caminhe até a pasta de testes conforme o exemplo do caminho abaixo:
