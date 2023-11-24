@@ -273,7 +273,7 @@ k6 run scripts.js
 > k6 run get-indicador-codIndicador.js             // ---> Para testar a controller de Indicador com o código Indicador
 >```
 
--- falar da configuração que a pessoa pode mudar conforme ela deseja
+
 > [!IMPORTANT]
 > É necessário lembrar que você também pode alterar as configurações do seu teste dentro do arquivo scripts.js, assim como dentro de cada arquivo da pasta scenarios que deseja testar.
 > As configurações que você pode alterar são o número de usuários virtuais (vus) e a duração (duration) que deseja utilizar para o teste, dentro do pedaço de código abaixo de cada arquivo:
@@ -287,12 +287,13 @@ export const options = {
 
 ```
 
-### Prints do relatório de execução dos testes de integração utlizando k6:
+### Prints do relatório de execução dos testes de perfomance utlizando k6:
 
 + Configuração do teste:
   - Usuários Virtuais (vus): 100
   - Duração (duration): 5min
  
+![k6-resultados-teste-carga](https://github.com/GKazukiOnishi/ODS3/assets/98359422/b3dd31f9-744c-4d33-beaf-d5bdea7b8999)
 
 
 Contribua conosco na construção de um mundo mais saudável e inclusivo!
