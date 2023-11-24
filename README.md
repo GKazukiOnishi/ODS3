@@ -1,4 +1,4 @@
-# ODS3
+![jest_supertest](https://github.com/GKazukiOnishi/ODS3/assets/98359422/4fd5c774-fa37-43a0-bab5-a40f09696162)# ODS3
 Projeto Global Solution FIAP - Microserviços
 
 ## Integrantes 
@@ -159,6 +159,60 @@ http://localhost:3001/
 ## Testes
 
 ### Jest / Supertest:
+
+Instruções para execução dos testes de Integração:
+
+1. Abra a pasta do projeto ODS3API no Visual Studio Code.
+2. Ao abrir o projeto, caminhe até a pasta de configuração conforme o exemplo do caminho abaixo:
+
+```
+C:\Users\amsbr\OneDrive\Documentos\ODS3\applications\backend\ods3API\src\config
+
+```
+
+3. Abra o arquivo databaseConfig.js e certifique-se de alterar o atributo "host: ods3db" da configuração para "host: localhost, conforme o código abaixo:
+
+```javascript
+
+const config = {
+  pool: {
+    //host: "ods3db", //manter para conexões entre containers
+    host: "localhost", // manter para testes de integração
+    user: "main",
+    password: "1234",
+    database: "ODS3",
+    connectTimeout: 60000,
+    waitForConnections: true,
+    connectionLimit: 20,
+    maxIdle: 10,
+    idleTimeout: 60000,
+    enableKeepAlive: true,
+  },
+  listPerPage: 10,
+};
+
+```
+4. Após a certificação de que a configuração está conforme descrito anteriormente, salve as alterações e abra o terminal (Ctrl+').
+5. Com o terminal aberto, caminhe até a pasta de testes conforme o exemplo caminho abaixo:
+
+```
+C:\Users\amsbr\OneDrive\Documentos\ODS3\applications\backend\ods3API\tests>
+
+```
+
+6. No terminal, dentro do caminho da pasta de testes, escreva o comando abaixo para executar os testes de integração:
+
+```javascript
+
+npx jest
+
+```
+
+### Prints do relatório de execução dos testes de integração utlizando Jest e SuperTest:
+
+
+![jest_supertest](https://github.com/GKazukiOnishi/ODS3/assets/98359422/f8234cdb-f83a-4132-bb5d-7cc887984bef)
+
 
 ### K6:
 
