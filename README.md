@@ -95,20 +95,24 @@ http://localhost:3000/objetivos
 
 1) Endpoint GET/categorias
 
+
 ![GET_CATEGORIAS](https://github.com/GKazukiOnishi/ODS3/assets/98359422/88775fe6-54f2-4112-a828-aa98821d711a)
 
 
 2) Endpoint GET/indicador
+
 
 ![GET_INDICADORES](https://github.com/GKazukiOnishi/ODS3/assets/98359422/f3c199fd-ac4e-44d5-813e-6c4dac1e0926)
 
 
 3) Endpoint GET/indicador/{id}
 
+
 ![GET_INDICADOR](https://github.com/GKazukiOnishi/ODS3/assets/98359422/c9a4bbf6-fc71-43d4-9cfb-3dc6a5e6d29d)
 
 
 4) Endpoint GET/objetivos
+
 
 ![GET_OBJETIVOS](https://github.com/GKazukiOnishi/ODS3/assets/98359422/1dfbf914-2a49-49e5-86b5-be3f37ca3929)
 
@@ -119,15 +123,21 @@ http://localhost:3000/objetivos
 
 - Página Inicial:
 
+
 ![1-Homepage](https://github.com/GKazukiOnishi/ODS3/assets/98359422/0941d068-1ebf-4f79-a733-9076cbabb075)
+
   
 * Página de Objetivos:
 
+
 ![2-Objetivos](https://github.com/GKazukiOnishi/ODS3/assets/98359422/aad3f727-1c15-44bf-adb4-82bd4434de3b)
+
 
 + Página de Indicadores:
 
+
 ![3-Indicadores](https://github.com/GKazukiOnishi/ODS3/assets/98359422/29d1720f-238f-4972-97d7-5fc21ff7d3ea)
+
 
 ### Instruções para execuções:
 
@@ -138,29 +148,165 @@ http://localhost:3001/
 
 + Página Inicial:
 
+
 ![home](https://github.com/GKazukiOnishi/ODS3/assets/98359422/31d14f63-9c20-4350-b1fc-d4ab56684c02)
+
 
 + Página de Objetivos Brasil:
 
+
 ![objetivos_brasil](https://github.com/GKazukiOnishi/ODS3/assets/98359422/836b54fd-6691-496c-b735-540dc64ea022)
+
 
 + Página de Objetivos Mundo:
 
+
 ![objetivos_mundo](https://github.com/GKazukiOnishi/ODS3/assets/98359422/c9db1c70-cdb0-4557-8806-d8c88f191e91)
+
 
 + Página de Indicadores sem filtros:
 
+
 ![indicadores](https://github.com/GKazukiOnishi/ODS3/assets/98359422/78f4ee27-7a8f-4b35-8e34-b369ff1aac65)
+
 
 + Página de Indicadores com filtros:
 
+
 ![indicadores_filtro](https://github.com/GKazukiOnishi/ODS3/assets/98359422/2730d4e0-0979-42e0-9e8f-a2a522943b65)
+
 
 ## Testes
 
 ### Jest / Supertest:
 
+Instruções para execução dos testes de Integração:
+
+> [!IMPORTANT]
+> Antes de começar os testes de integração, certifique-se de que os containers estejam funcionando, pelo menos o container "ods3db".
+
+1. Abra a pasta do projeto ODS3API no Visual Studio Code.
+2. Abra o terminal e execute o comando abaixo:
+
+```
+npm install
+```
+
+3. Ao abrir o projeto, caminhe até a pasta de configuração conforme o exemplo do caminho abaixo:
+
+```
+C:\Users\amsbr\OneDrive\Documentos\ODS3\applications\backend\ods3API\src\config
+```
+
+3. Abra o arquivo databaseConfig.js e certifique-se de alterar o atributo "host: ods3db" da configuração para "host: localhost, conforme o código abaixo:
+
+```javascript
+
+const config = {
+  pool: {
+    //host: "ods3db", //manter para conexões entre containers
+    host: "localhost", // manter para testes de integração
+    user: "main",
+    password: "1234",
+    database: "ODS3",
+    connectTimeout: 60000,
+    waitForConnections: true,
+    connectionLimit: 20,
+    maxIdle: 10,
+    idleTimeout: 60000,
+    enableKeepAlive: true,
+  },
+  listPerPage: 10,
+};
+
+```
+4. Após a certificação de que a configuração está conforme descrito anteriormente, salve as alterações e abra o terminal (Ctrl+').
+5. Com o terminal aberto, caminhe até a pasta de testes conforme o exemplo caminho abaixo:
+
+```
+C:\Users\amsbr\OneDrive\Documentos\ODS3\applications\backend\ods3API\tests>
+```
+
+6. No terminal, dentro do caminho da pasta de testes, escreva o comando abaixo para executar os testes de integração:
+
+```javascript
+
+npx jest
+
+```
+
+### Prints do relatório de execução dos testes de integração utlizando Jest e SuperTest:
+
+
+![jest_supertest](https://github.com/GKazukiOnishi/ODS3/assets/98359422/f8234cdb-f83a-4132-bb5d-7cc887984bef)
+
+
 ### K6:
+
+Instruções para execução dos testes de carga:
+
+> [!IMPORTANT]
+> Antes de começar os testes de carga, certifique-se de que o k6 está instalado em sua máquina, pois sem ele instalado não tem como executar os testes.
+> Caso, ainda não tenha o k6 instalado, você pode seguir os passos de instalação conforme a [documentação oficial](https://k6.io/docs/get-started/installation/). 
+
+1. Abra a pasta do projeto ODS3API no Visual Studio Code.
+2. Ao abrir o projeto, caminhe até a pasta de testes conforme o exemplo do caminho abaixo:
+
+```
+C:\Users\amsbr\OneDrive\Documentos\ODS3\applications\backend\ods3API\tests>
+```
+
+3. No terminal, dentro do caminho da pasta de testes, escreva o comando abaixo para executar os testes de performance:
+
+```javascript
+
+k6 run scripts.js
+
+```
+
+> [!NOTE]
+> Ao utilizar o comando descrito no passo anterior, você estará testando todos os endpoints conjuntamente e não apenas um endpoint só.
+> Isso acontece, pois o arquivo scripts.js foi desenvolvido com a inteção de facilitar com apenas um comando testar todas as controllers e cenários da aplicação.
+
+
+> [!TIP]
+> É possível testar os endpoints de forma separada também, acessando a pasta scenarios que fica dentro da pasta de testes conforme o exemplo abaixo:
+>
+> ```
+> C:\Users\amsbr\OneDrive\Documentos\ODS3\applications\backend\ods3API\tests\scenarios>
+> ```
+>
+> Dentro da pasta abaixo, você pode digitar o mesmo comando que utilizou para executar o arquivo de scripts.
+> Para isso apenas altere o nome do arquivo para o endpoint que deseja testar, conforme exemplos abaixo:
+>
+>```javascript
+> k6 run get-categoria.js                          // ---> Para testar a controller de Categoria
+> k6 run get-objetivo.js                           // ---> Para testar a controller de Objetivo
+> k6 run get-indicador.js                          // ---> Para testar a controller de Indicador
+> k6 run get-indicador-codIndicador.js             // ---> Para testar a controller de Indicador com o código Indicador
+>```
+
+
+> [!IMPORTANT]
+> É necessário lembrar que você também pode alterar as configurações do seu teste dentro do arquivo scripts.js, assim como dentro de cada arquivo da pasta scenarios que deseja testar.
+> As configurações que você pode alterar são o número de usuários virtuais (vus) e a duração (duration) que deseja utilizar para o teste, dentro do pedaço de código abaixo de cada arquivo:
+
+```javascript
+
+export const options = {
+    vus: 10,
+    duration: '10s',
+};
+
+```
+
+### Prints do relatório de execução dos testes de perfomance utlizando k6:
+
++ Configuração do teste:
+  - Usuários Virtuais (vus): 100
+  - Duração (duration): 5min
+ 
+![k6-resultados-teste-carga](https://github.com/GKazukiOnishi/ODS3/assets/98359422/b3dd31f9-744c-4d33-beaf-d5bdea7b8999)
 
 
 Contribua conosco na construção de um mundo mais saudável e inclusivo!
