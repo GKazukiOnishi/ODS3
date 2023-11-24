@@ -1,4 +1,4 @@
-![jest_supertest](https://github.com/GKazukiOnishi/ODS3/assets/98359422/4fd5c774-fa37-43a0-bab5-a40f09696162)# ODS3
+# ODS3
 Projeto Global Solution FIAP - Microserviços
 
 ## Integrantes 
